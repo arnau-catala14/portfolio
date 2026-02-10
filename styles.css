@@ -216,7 +216,7 @@ a:hover {
 
 /* ============ LAYOUT Y CONTENEDORES ============ */
 .container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -240,7 +240,7 @@ header {
     position: relative;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8));
     overflow: hidden;
-    padding: 2rem 0;
+    padding: 5rem 0;
 }
 
 .header-two-col {
