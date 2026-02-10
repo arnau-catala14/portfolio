@@ -274,9 +274,6 @@ header {
     color: var(--text-secondary);
     margin: 1.5rem 0 2.5rem;
     font-weight: 400;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
@@ -388,7 +385,6 @@ header {
 
 .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -805,6 +801,7 @@ footer p:hover {
         padding: 0 1.5rem;
     }
 
+    header,
     section {
         padding: 3rem 0;
     }
@@ -834,10 +831,6 @@ footer p:hover {
     }
 
     .work-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .tech-grid {
         grid-template-columns: 1fr;
     }
 
