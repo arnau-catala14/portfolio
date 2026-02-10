@@ -78,10 +78,6 @@
     }
 }
 
-
-
-
-
 @keyframes underlineGrow {
     from {
         width: 0;
@@ -127,6 +123,7 @@ body {
     color: var(--text-primary);
     line-height: 1.7;
     overflow-x: hidden;
+    overflow-anchor: none;
 }
 
 h1,
