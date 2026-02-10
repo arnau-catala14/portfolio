@@ -319,6 +319,10 @@ header {
     transition: var(--transition);
 }
 
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
 .project-item:hover {
     box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
 }
