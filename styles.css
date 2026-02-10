@@ -78,29 +78,9 @@
     }
 }
 
-@keyframes subtleFloat {
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
 
-    50% {
-        transform: translateY(-6px);
-    }
-}
 
-@keyframes glowPulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
-    }
-
-    50% {
-        box-shadow: 0 0 20px 2px rgba(56, 189, 248, 0.15);
-    }
-}
 
 @keyframes underlineGrow {
     from {
@@ -251,17 +231,7 @@ header {
     text-align: left;
 }
 
-@keyframes pulse {
 
-    0%,
-    100% {
-        opacity: 0.5;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
 
 .header-content {
     position: relative;
@@ -322,9 +292,7 @@ header {
 }
 
 /* ============ SECCIÓN SOBRE MÍ ============ */
-.about {
-    background: var(--bg-primary);
-}
+
 
 .about-content {
     max-width: 900px;
@@ -364,9 +332,7 @@ header {
 }
 
 /* ============ STACK TECNOLÓGICO ============ */
-.tech-stack {
-    background: linear-gradient(180deg, var(--bg-primary), rgba(30, 41, 59, 0.3));
-}
+
 
 .tech-stack-header {
     background: var(--bg-card);
@@ -388,11 +354,7 @@ header {
     gap: 2rem;
 }
 
-.tech-grid-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
+
 
 .tech-category h4 {
     color: var(--accent);
@@ -548,27 +510,14 @@ header {
     transform: scale(1.05);
 }
 
-.project-image img,
-.project-placeholder {
+.project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.project-placeholder {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: white;
-    font-weight: bold;
-}
 
-.project-placeholder.alt {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
 
 .project-content {
     display: flex;
@@ -855,8 +804,4 @@ footer p:hover {
 
 .mb-3 {
     margin-bottom: 3rem;
-}
-
-.mt-3 {
-    margin-top: 3rem;
 }
