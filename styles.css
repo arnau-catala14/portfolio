@@ -791,10 +791,6 @@ footer p:hover {
     }
 }
 
-header {
-    padding: 2rem 0;
-}
-
 .header-two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
