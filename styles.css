@@ -228,8 +228,6 @@ header {
     text-align: left;
 }
 
-
-
 .header-content {
     position: relative;
     z-index: 1;
@@ -289,8 +287,6 @@ header {
 }
 
 /* ============ SECCIÓN SOBRE MÍ ============ */
-
-
 .about-content {
     max-width: 900px;
     margin: 0 auto;
@@ -300,6 +296,30 @@ header {
     box-shadow: 0 10px 30px var(--shadow);
     border: 1px solid rgba(56, 189, 248, 0.1);
     animation: fadeInLeft 0.8s ease-out 0.5s both;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content::after,
+.tech-stack-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.about-content:hover::after,
+.tech-stack-header:hover::after {
+    opacity: 1;
 }
 
 .about-content p {
@@ -329,8 +349,6 @@ header {
 }
 
 /* ============ STACK TECNOLÓGICO ============ */
-
-
 .tech-stack-header {
     background: var(--bg-card);
     padding: 2rem;
@@ -339,6 +357,8 @@ header {
     border: 1px solid rgba(56, 189, 248, 0.1);
     transition: var(--transition);
     animation: fadeInRight 0.8s ease-out 0.5s both, borderGlow 4s ease-in-out infinite 1.5s;
+    position: relative;
+    overflow: hidden;
 }
 
 .tech-stack-header:hover {
@@ -350,8 +370,6 @@ header {
     display: grid;
     gap: 2rem;
 }
-
-
 
 .tech-category h4 {
     color: var(--accent);
@@ -442,24 +460,25 @@ header {
     box-shadow: 0 10px 30px var(--shadow);
     border: 1px solid rgba(56, 189, 248, 0.1);
     transition: var(--transition);
-    animation: fadeInScale 0.8s ease-out both;
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
 }
 
-.project-item:nth-child(1) {
-    animation-delay: 0.1s;
+.project-item.from-left {
+    transform: translateX(-100px);
 }
 
-.project-item:nth-child(2) {
-    animation-delay: 0.3s;
+.project-item.from-right {
+    transform: translateX(100px);
 }
 
-.project-item:last-child {
-    margin-bottom: 0;
+.project-item.reveal-visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .project-item:hover {
     box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
-    transform: translateY(-4px);
 }
 
 .project-title {
@@ -496,15 +515,15 @@ header {
 
 .project-image:hover {
     box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
-    transform: scale(1.02);
 }
 
 .project-image img {
-    transition: transform 0.5s ease;
-}
-
-.project-image:hover img {
-    transform: scale(1.05);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease-out;
+    will-change: transform, transform-origin;
 }
 
 .project-image img {
@@ -513,8 +532,6 @@ header {
     object-fit: cover;
     display: block;
 }
-
-
 
 .project-content {
     display: flex;
@@ -606,8 +623,9 @@ header {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.2s ease-out;
     object-position: top;
+    will-change: transform, transform-origin;
 }
 
 .work-card-content {
@@ -625,7 +643,6 @@ header {
     font-size: 0.95rem;
 }
 
-/* Estilos para el aviso de confidencialidad */
 .disclaimer {
     grid-column: 1 / -1;
     margin: 4rem auto 0;
@@ -738,6 +755,12 @@ footer p:hover {
 }
 
 /* ============ MEDIA QUERIES (RESPONSIVE) ============ */
+@media (max-width: 1024px) {
+    .work-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 1.5rem;
