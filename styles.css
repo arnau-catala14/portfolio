@@ -606,14 +606,6 @@ header {
     font-weight: bold;
 }
 
-.work-image.variant-2 {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.work-image.variant-3 {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
 .work-card-content {
     padding: 2rem;
     text-align: center;
