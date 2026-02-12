@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // 3. Scroll Reveal Animation
+  // 3. Scroll Reveal Animation (Projects)
   // ==========================================
   const projectItems = document.querySelectorAll(".project-item");
   const observerOptions = {
@@ -90,5 +90,42 @@ document.addEventListener("DOMContentLoaded", () => {
       item.classList.add("from-right");
     }
     observer.observe(item);
+  });
+
+  // ==========================================
+  // 4. Work Cards Scroll Reveal (Staggered)
+  // ==========================================
+  const workCards = document.querySelectorAll(".work-card");
+  let cardRevealCounter = 0;
+
+  const workCardObserver = new IntersectionObserver(
+    (entries) => {
+      // Collect newly visible cards in this batch
+      const newlyVisible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => {
+          // Sort left-to-right, top-to-bottom
+          const rectA = a.boundingClientRect;
+          const rectB = b.boundingClientRect;
+          if (Math.abs(rectA.top - rectB.top) < 20) {
+            return rectA.left - rectB.left;
+          }
+          return rectA.top - rectB.top;
+        });
+
+      newlyVisible.forEach((entry, i) => {
+        entry.target.style.setProperty("--card-index", i);
+        entry.target.classList.add("card-visible");
+        workCardObserver.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px",
+    },
+  );
+
+  workCards.forEach((card) => {
+    workCardObserver.observe(card);
   });
 });
