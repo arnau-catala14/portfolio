@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================
   const projectItems = document.querySelectorAll(".project-item");
   const observerOptions = {
-    threshold: 0.15, // 15% visibility triggers animation
+    threshold: 0.2, // 20% visibility triggers animation
     rootMargin: "0px",
   };
 
