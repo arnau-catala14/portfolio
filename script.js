@@ -128,4 +128,62 @@ document.addEventListener("DOMContentLoaded", () => {
   workCards.forEach((card) => {
     workCardObserver.observe(card);
   });
+
+  // ==========================================
+  // 5. Sticky Scroll for Project Images
+  // ==========================================
+  const projectBodies = document.querySelectorAll(".project-body");
+  let stickyTicking = false;
+
+  function updateStickyImages() {
+    // Skip on mobile (single-column layout)
+    if (window.innerWidth <= 768) {
+      projectBodies.forEach((body) => {
+        const img = body.querySelector(".project-image");
+        if (img) img.style.transform = "";
+      });
+      stickyTicking = false;
+      return;
+    }
+
+    const offset = 32; // 2rem top gap
+
+    projectBodies.forEach((body) => {
+      const img = body.querySelector(".project-image");
+      if (!img) return;
+
+      const bodyRect = body.getBoundingClientRect();
+      const imgHeight = img.offsetHeight;
+      const maxTranslate = body.offsetHeight - imgHeight;
+
+      // Only apply when body top has scrolled past the offset point
+      // and there is room to move (text taller than image)
+      if (maxTranslate <= 0) {
+        img.style.transform = "";
+        return;
+      }
+
+      if (bodyRect.top < offset) {
+        // How many px the body has scrolled past the offset
+        const scrolled = offset - bodyRect.top;
+        const translate = Math.min(Math.max(0, scrolled), maxTranslate);
+        img.style.transform = `translateY(${translate}px)`;
+      } else {
+        img.style.transform = "";
+      }
+    });
+
+    stickyTicking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!stickyTicking) {
+        requestAnimationFrame(updateStickyImages);
+        stickyTicking = true;
+      }
+    },
+    { passive: true },
+  );
 });

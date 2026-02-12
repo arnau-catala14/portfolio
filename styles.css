@@ -384,7 +384,7 @@ header {
 }
 
 .about-content p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -575,9 +575,10 @@ header {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   aspect-ratio: 16 / 8;
   height: fit-content;
+  will-change: transform;
 }
 
 .project-image:hover {
