@@ -203,7 +203,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   color: var(--text-primary);
   position: relative;
   display: inline-block;
